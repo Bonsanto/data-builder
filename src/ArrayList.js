@@ -73,8 +73,8 @@ var ArrayList = function () {
 
 
     /**
-     *  boolean    contains(Object o)
-     *  R           eturns true if this list contains the specified element.
+     *  boolean     contains(Object o)
+     *  R           Returns true if this list contains the specified element.
      * */
     this.contains = function (object) {
         return list.indexOf(object) > -1;
@@ -84,21 +84,109 @@ var ArrayList = function () {
      *  void        ensureCapacity(int minCapacity)
      *              Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
      * */
-    this.ensureCapacity = function(n) {
+    this.ensureCapacity = function (n) {
         list = new Array(n);
     };
 
     /**
-     *  void 	    forEach(Consumer<? super E> action)
+     *  void        forEach(Consumer<? super E> action)
      *              Performs the given action for each element of the Iterable until all elements have been processed or the action throws an exception.
      * */
-    this.forEach = function (func) {
-        ;
-    }
+//    this.forEach = function (func) {
+//        TODO:;
+//    };
+
+
+    /**
+     *  E           get(int index)
+     *              Returns the element at the specified position in this list.
+     * */
+    this.get = function (index) {
+        if (index < list.length) return list[index];
+        throw "Attempting is out of bounds";
+    };
+
+
+    /**
+     * int            indexOf(Object o)
+     *              Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+     * */
+    this.indexOf = function (o) {
+        return list.indexOf(o);
+    };
+
+
+    /**
+     *  boolean     isEmpty()
+     *              Returns true if this list contains no elements.
+     * */
+    this.isEmpty = function () {
+        return list.length === 0;
+    };
+
+    /**
+     *  Iterator<E>     iterator()
+     *                  Returns an iterator over the elements in this list in proper sequence.
+     * */
+//    this.iterator = function (func) {
+//        TODO:;
+//    };
+
+
+    /**
+     *  int         lastIndexOf(Object o)
+     *              Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+     * */
+    this.lastIndexOf = function (o) {
+        for (var i = list - 1; i < list.length; i--) {
+            if (list[i] === o) return i;
+        }
+        return -1;
+    };
+
+    /**
+     *  ListIterator<E>     listIterator(int index)
+     *                      Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list.
+     *  ListIterator<E>     listIterator(int index)
+     *                      Returns a list iterator over the elements in this list (in proper sequence), starting at the specified position in the list.
+     * */
+//    this.listIterator = function() {
+//    TODO:
+//    };
+
+    /**
+     *  boolean     remove(Object o)
+     *              Removes the first occurrence of the specified element from this list, if it is present.
+     *
+     *  boolean     remove(Object o)
+     *              Removes the first occurrence of the specified element from this list, if it is present.
+     * */
+    this.remove = function () {
+        if (typeof arguments[0] === "number") {
+            var element = list[arguments[0]];
+            list.splice(arguments[0], 1);
+            return element;
+        } else {
+            if (list.indexOf(arguments[0]) < -1) {
+                list.splice(list.indexOf(arguments[0]));
+                return true;
+            }
+            return false;
+        }
+    };
+
+    /***
+     *  boolean     removeAll(Collection<?> c)
+     *              Removes from this list all of its elements that are contained in the specified collection.
+     *
+     */
+    this.removeAll = function(c) {
+        
+    };
 
     this.toArray = function () {
         return list;
-    }
+    };
 };
 
 var array = new ArrayList();
@@ -119,5 +207,10 @@ console.log(array.toArray());
 console.log(array3.toArray());
 console.log(array3.contains("12"));
 console.log(array3.contains(12));
+//console.log(array3.get(1000));
+console.log(array3.remove(3));
+console.log(array3.toArray());
+console.log(array3.remove("3"));
+console.log(array3.toArray());
 
-
+console.log(typeof 12);
