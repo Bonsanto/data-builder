@@ -178,10 +178,22 @@ var ArrayList = function () {
     /***
      *  boolean     removeAll(Collection<?> c)
      *              Removes from this list all of its elements that are contained in the specified collection.
-     *
+     *              PD: Collections can be Arrays or ArrayList, hard to implement in JS.
      */
-    this.removeAll = function(c) {
-        
+    this.removeAll = function (c) {
+        var a = (c instanceof ArrayList) ? c.toArray() : c;
+        var modified = false;
+
+        for (var i = 0; i < a.length; i++) {
+            for (var j = 0; j < list.length; j++) {
+                if (a[i] === list[j]) {
+                    modified = true;
+                    list.splice(j, 1);
+                    break;
+                }
+            }
+        }
+        return modified;
     };
 
     this.toArray = function () {
@@ -214,3 +226,21 @@ console.log(array3.remove("3"));
 console.log(array3.toArray());
 
 console.log(typeof 12);
+console.log(array instanceof Array);
+console.log(array.toArray() instanceof Array);
+console.log(array instanceof ArrayList);
+
+var jubert = new ArrayList();
+var thais = new ArrayList();
+
+for (var i = 0; i < 100; i++) {
+    jubert.add(i);
+    jubert.add(i);
+}
+for (var i = 10; i < 37; i++) thais.add(i);
+
+console.log(jubert.toArray());
+console.log(thais.toArray());
+jubert.removeAll(thais.toArray());
+console.log(jubert.toArray());
+console.log(thais.toArray());
