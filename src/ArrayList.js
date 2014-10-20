@@ -80,6 +80,7 @@ var ArrayList = function () {
         return list.indexOf(object) > -1;
     };
 
+
     /**
      *  void        ensureCapacity(int minCapacity)
      *              Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
@@ -87,6 +88,7 @@ var ArrayList = function () {
     this.ensureCapacity = function (n) {
         list = new Array(n);
     };
+
 
     /**
      *  void        forEach(Consumer<? super E> action)
@@ -196,9 +198,58 @@ var ArrayList = function () {
         return modified;
     };
 
+
+    /**
+     *  boolean 	removeIf(Predicate<? super E> filter)
+     *              Removes all of the elements of this collection that satisfy the given predicate.
+     */
+//    this.removeIf = function() {
+//    TODO:
+//    };
+
+
+    /**
+     *  protected void 	    removeRange(int fromIndex, int toIndex)
+     *                      Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
+     */
+//    this.removeRange = function() {
+//    TODO:
+//    };
+
+
+    /**
+     *  void 	replaceAll(UnaryOperator<E> operator)
+     *          Replaces each element of this list with the result of applying the operator to that element.
+     */
+//    this.replaceAll = function() {
+//    TODO:
+//    };
+
+
+    /**
+     *  boolean 	retainAll(Collection<?> c)
+     *              Retains only the elements in this list that are contained in the specified collection.
+     */
+//    this.retainAll = function() {
+//    TODO:
+//    };
+
+
+    /***
+     * E 	set(int index, E element)
+     *      Replaces the element at the specified position in this list with the specified element.
+     */
+    this.set = function(index, element) {
+        var e = list[index];
+        list[index] = element;
+        return e;
+    };
+
     this.toArray = function () {
         return list;
     };
+
+
 };
 
 var array = new ArrayList();
@@ -230,6 +281,10 @@ console.log(array instanceof Array);
 console.log(array.toArray() instanceof Array);
 console.log(array instanceof ArrayList);
 
+console.log(array.toArray());
+console.log(array.set(2,30));
+console.log(array.toArray());
+/*
 var jubert = new ArrayList();
 var thais = new ArrayList();
 
@@ -244,3 +299,4 @@ console.log(thais.toArray());
 jubert.removeAll(thais.toArray());
 console.log(jubert.toArray());
 console.log(thais.toArray());
+*/
