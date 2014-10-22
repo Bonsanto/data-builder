@@ -77,7 +77,6 @@ var ArrayList = function () {
         return list.indexOf(object) > -1;
     };
 
-
     /**
      *  void        ensureCapacity(int minCapacity)
      *              Increases the capacity of this ArrayList instance, if necessary, to ensure that it can hold at least the number of elements specified by the minimum capacity argument.
@@ -195,55 +194,6 @@ var ArrayList = function () {
         return modified;
     };
 
-<<<<<<< HEAD
-
-    /**
-     *  boolean 	removeIf(Predicate<? super E> filter)
-     *              Removes all of the elements of this collection that satisfy the given predicate.
-     */
-//    this.removeIf = function() {
-//    TODO:
-//    };
-
-
-    /**
-     *  protected void 	    removeRange(int fromIndex, int toIndex)
-     *                      Removes from this list all of the elements whose index is between fromIndex, inclusive, and toIndex, exclusive.
-     */
-//    this.removeRange = function() {
-//    TODO:
-//    };
-
-
-    /**
-     *  void 	replaceAll(UnaryOperator<E> operator)
-     *          Replaces each element of this list with the result of applying the operator to that element.
-     */
-//    this.replaceAll = function() {
-//    TODO:
-//    };
-
-
-    /**
-     *  boolean 	retainAll(Collection<?> c)
-     *              Retains only the elements in this list that are contained in the specified collection.
-     */
-//    this.retainAll = function() {
-//    TODO:
-//    };
-
-
-    /***
-     * E 	set(int index, E element)
-     *      Replaces the element at the specified position in this list with the specified element.
-     */
-    this.set = function(index, element) {
-        var e = list[index];
-        list[index] = element;
-        return e;
-    };
-
-=======
     /**
      *  boolean         removeIf(Predicate<? super E> filter)
      *                  Removes all of the elements of this collection that satisfy the given predicate.
@@ -343,64 +293,11 @@ var ArrayList = function () {
     /**  <T> T[]        toArray(T[] a)
      *                  Returns an array containing all of the elements in this list in proper sequence (from first to last element); the runtime type of the returned array is that of the specified array.
      */
->>>>>>> master
     this.toArray = function () {
         return list;
     };
 
 
-<<<<<<< HEAD
-};
-
-var array = new ArrayList();
-array.add(12);
-array.add(20);
-array.add(45);
-var array2 = new ArrayList();
-array2.add(25);
-array2.add(30);
-array2.add(31);
-array2.add(35);
-array.addAll(2, array2);
-console.log(array.toArray());
-var array3 = array.clone();
-console.log(array3.toArray());
-array.add(100);
-console.log(array.toArray());
-console.log(array3.toArray());
-console.log(array3.contains("12"));
-console.log(array3.contains(12));
-//console.log(array3.get(1000));
-console.log(array3.remove(3));
-console.log(array3.toArray());
-console.log(array3.remove("3"));
-console.log(array3.toArray());
-
-console.log(typeof 12);
-console.log(array instanceof Array);
-console.log(array.toArray() instanceof Array);
-console.log(array instanceof ArrayList);
-
-console.log(array.toArray());
-console.log(array.set(2,30));
-console.log(array.toArray());
-/*
-var jubert = new ArrayList();
-var thais = new ArrayList();
-
-for (var i = 0; i < 100; i++) {
-    jubert.add(i);
-    jubert.add(i);
-}
-for (var i = 10; i < 37; i++) thais.add(i);
-
-console.log(jubert.toArray());
-console.log(thais.toArray());
-jubert.removeAll(thais.toArray());
-console.log(jubert.toArray());
-console.log(thais.toArray());
-*/
-=======
     /**  void           trimToSize()
      *                  Trims the capacity of this ArrayList instance to be the list's current size.
      **/
@@ -429,4 +326,3 @@ console.log(a.retainAll(b));
 console.log(a.toArray());
 //a.removeRange(0, 1);
 //console.log(a.toArray());
->>>>>>> master
